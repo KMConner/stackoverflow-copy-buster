@@ -14,5 +14,13 @@ module.exports = {
         // ビルド後のファイルが出力される"絶対パス"ディレクトリ
         // https://webpack.js.org/configuration/output/#outputpath
         path: path.join(__dirname, 'dist/')
-    }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                loader: 'ts-loader'
+            }
+        ]
+    },
 };
