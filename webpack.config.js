@@ -1,5 +1,6 @@
 // pathモジュールを読み(output.pathに絶対パスを指定するため)
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     // モードの設定。指定可能な値は、none, development ,production（デフォルト）
@@ -23,4 +24,19 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: '*.png',
+                    to: '../dist',
+                    context: 'src'
+                },
+                {
+                    from: 'manifest.json',
+                    to: '../dist',
+                    context: 'src'
+                }
+            ]})
+    ]
 };
