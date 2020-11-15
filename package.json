@@ -7,7 +7,9 @@
     "license": "MIT",
     "private": true,
     "dependencies": {
-        "webextension-polyfill-ts": "^0.22.0"
+        "@types/chrome": "^0.0.126",
+        "axios": "^0.21.0",
+        "node-html-parser": "^2.0.0"
     },
     "devDependencies": {
         "@types/copy-webpack-plugin": "^6.2.0",
