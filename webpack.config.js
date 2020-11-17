@@ -8,11 +8,16 @@ module.exports = {
         filename: 'bundle.js',
         path: path.join(__dirname, 'dist/')
     },
+    resolve: {
+        modules: [path.join(__dirname, './src'), path.join(__dirname, './node_modules')],
+        extensions: ['.ts', '.js', '.tsx']
+    },
     module: {
         rules: [
             {
                 test: /\.ts$/,
-                loader: 'ts-loader'
+                loader: 'ts-loader',
+                exclude: /node_modules/
             }
         ]
     },
@@ -29,6 +34,7 @@ module.exports = {
                     to: '../dist',
                     context: 'src'
                 }
-            ]})
+            ]
+        })
     ]
 };
