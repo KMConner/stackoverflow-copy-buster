@@ -3,10 +3,10 @@ import * as xpath from 'xpath'
 import { DOMParser } from "xmldom"
 import * as parse5 from "parse5"
 import * as xmlser from "xmlserializer"
-import { browser } from "webextension-polyfill-ts"
+import { browser, WebNavigation } from "webextension-polyfill-ts"
 import * as siteList from "./siteList"
 
-async function mainImpl(e: chrome.webNavigation.WebNavigationParentedCallbackDetails, originalUrlXpath: string) {
+async function mainImpl(e: WebNavigation.OnBeforeNavigateDetailsType, originalUrlXpath: string) {
     const currentUrl = e.url
     const htmlData = (await axios.get(currentUrl)).data
     const htmlDoc: parse5.Document = parse5.parse(htmlData)
@@ -21,5 +21,5 @@ async function mainImpl(e: chrome.webNavigation.WebNavigationParentedCallbackDet
 console.log(siteList.copySites)
 
 for (const site of siteList.copySites) {
-    chrome.webNavigation.onBeforeNavigate.addListener(e => mainImpl(e, site.originUrlXpath), { url: [{ urlMatches: site.urlPattern }] });
+    browser.webNavigation.onBeforeNavigate.addListener(e => mainImpl(e, site.originUrlXpath), { url: [{ urlMatches: site.urlPattern }] });
 }
