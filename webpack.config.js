@@ -3,9 +3,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     mode: 'development',
-    entry: './src/content_sctipts.ts',
+    entry: {
+        background: './src/content_sctipts.ts',
+        popup: './src/popup.ts'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].js',
         path: path.join(__dirname, 'dist/')
     },
     resolve: {
@@ -31,6 +34,16 @@ module.exports = {
                 },
                 {
                     from: 'manifest.json',
+                    to: '../dist',
+                    context: 'src'
+                },
+                {
+                    from: '*.html',
+                    to: '../dist',
+                    context: 'src'
+                },
+                {
+                    from: '*.css',
                     to: '../dist',
                     context: 'src'
                 }
