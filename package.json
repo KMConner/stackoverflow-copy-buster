@@ -11,7 +11,7 @@
         "@types/parse5": "^5.0.3",
         "@types/xmldom": "^0.1.30",
         "@types/xmlserializer": "^0.6.1",
-        "axios": "^0.21.0",
+        "axios": "^0.21.1",
         "parse5": "^6.0.1",
         "webextension-polyfill-ts": "^0.22.0",
         "xmldom": "^0.4.0",
