@@ -14,7 +14,7 @@
         "axios": "^0.21.1",
         "parse5": "^6.0.1",
         "webextension-polyfill-ts": "^0.22.0",
-        "xmldom": "^0.4.0",
+        "xmldom": "^0.5.0",
         "xmlserializer": "^0.6.1",
         "xpath": "^0.0.32"
     },
